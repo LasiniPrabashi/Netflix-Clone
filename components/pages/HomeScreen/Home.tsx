@@ -14,11 +14,13 @@ const Home = () => {
     // stickyHeaderIndices={[0]}
     // showsVerticalScrollIndicator={false}>
   
-     <View  style={styles.pageContainer}>
-      <Header />
 
- 
+     <View  style={styles.pageContainer} >
+      <Header />
      
+
+{/* 
+     <ScrollView style={styles.scrollView} > */}
  <Text style={styles.baseText}>Popular on Netflix</Text>
 
 <View style={styles.imageContainer}>
@@ -67,7 +69,7 @@ const Home = () => {
       source={require('../../../assets/svg/download.jpg')}
     /> 
      </View > */}
-  
+  {/* </ScrollView> */}
          <View style={styles.bottomIcons}>
          <Ionicons name="home" size={24} color="gray" style={styles.icons} />
          <Ionicons name="time" size={24} color="gray" style={styles.icons} />

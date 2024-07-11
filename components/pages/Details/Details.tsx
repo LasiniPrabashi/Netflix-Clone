@@ -5,33 +5,33 @@ import { Ionicons, MaterialIcons, Octicons } from '@expo/vector-icons'
 const songs = [
     {
       id: 1,
-      title: 'Shape of You',
-      artist: 'Ed Sheeran',
-      image: require('../../../assets/svg/download.jpg')
+      title: 'stranger Things 1 & 2',
+      artist: 'tv shows',
+      image: require('../../../assets/svg/stranger.jpg')
     },
     {
       id: 2,
-      title: 'Perfect',
-      artist: 'Ed Sheeran',
-      image: require('../../../assets/svg/download.jpg')
+      title: '13 RESASONS WHY',
+      artist: 'tv shows',
+      image: require('../../../assets/svg/13R.jpg')
     },
     {
       id: 3,
-      title: 'Thinking Out Loud',
-      artist: 'Ed Sheeran',
-      image: require('../../../assets/svg/download.jpg')
+      title: 'Money Heist',
+      artist: 'tv shows',
+      image: require('../../../assets/svg/moneyHeist.jpg')
     },
     {
       id: 4,
-      title: 'Thinking Out Loud',
-      artist: 'Ed Sheeran',
-      image: require('../../../assets/svg/download.jpg')
+      title: 'DARK',
+      artist: 'tv shows',
+      image: require('../../../assets/svg/dark.png')
     },
     {
       id: 5,
-      title: 'Thinking Out Loud',
-      artist: 'Ed Sheeran',
-      image: require('../../../assets/svg/download.jpg')
+      title: 'Peaky Blinder',
+      artist: 'tv shows',
+      image: require('../../../assets/svg/peakyBlinder.jpg')
     }
     
   ]
@@ -64,26 +64,22 @@ export default function Details() {
       </View>
     <View style={styles.imageContainer}>
       <View style={styles.detailsContainer}>
-        {/* <TouchableOpacity style={styles.followButton}>
-          <Text style={styles.buttonText}>Follow</Text>
-        </TouchableOpacity> */}
         <View style={styles.stats}>
           <Text style={styles.match}>98% Match</Text>
           {/* <Text style={styles.year}>{data.year}</Text> */}
           <Text style={styles.age}>12+</Text>
           {/* <Text style={styles.seasons}>{data.numberOfSeasons} Seasons</Text> */}
-          <MaterialIcons name="hd" size={30} color="white" />
+          <MaterialIcons name="hd" size={25} color="white" />
         </View>
          <Pressable style={styles.playButton}>
-          <Ionicons name="play-sharp" size={30} color="black" />
+          <Ionicons name="play-sharp" size={25} color="black" />
           <Text style={styles.playText}>Play</Text>
         </Pressable>
         <Pressable style={styles.downloadBtn}>
-          <Octicons name="download" size={30} color="white" />
+          <Octicons name="download" size={25} color="white" />
           <Text style={styles.downloadText}>Download</Text>
         </Pressable>
-        {/* <Ionicons name="ellipsis-vertical" size={28} color="white" style={styles.moreIcon} />
-        <Ionicons name="play-circle" size={52} color="green" style={styles.playIcon} /> */}
+    
       </View>
     </View>
     <Text style={styles.baseText}>Episodes</Text>
@@ -93,13 +89,13 @@ export default function Details() {
           <Text style={styles.rankText}>{index + 1}</Text>
           <Image
             style={styles.popularImage}
-            // source={song.image}
+            source={song.image}
           />
           <View style={styles.textContainer}>
-            {/* <Text style={styles.songTitle}>{song.title}</Text>
-            <Text style={styles.songArtist}>{song.artist}</Text> */}
+            <Text style={styles.songTitle}>{song.title}</Text>
+            <Text style={styles.songArtist}>{song.artist}</Text>
           </View>
-          <Ionicons name="ellipsis-vertical" size={24} color="white" style={styles.popularMoreIcon} />
+          <Ionicons name="download" size={24} color="grey" style={styles.popularMoreIcon} />
         </View>
       ))}
     </ScrollView>
@@ -135,31 +131,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginRight: 180,
       },
-      buttonContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 14,
-        marginRight: 140,
-      },
-      followButton: {
-        backgroundColor: 'black',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 10,
-        borderColor: 'white',
-        borderWidth: 2,
-      },
-      buttonText: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: 'bold',
-      },
-      moreIcon: {
-        marginLeft: 10,
-      },
-      playIcon: {
-        marginLeft: 10,
-      },
       baseText: {
         fontWeight: 'bold',
         color: 'white',
@@ -188,9 +159,9 @@ const styles = StyleSheet.create({
         flex: 1,
       },
       songTitle: {
-        color: 'white',
-        fontSize: 18,
+        fontSize: 15,
         fontWeight: 'bold',
+        color: 'white',
       },
       songArtist: {
         color: 'gray',
@@ -207,9 +178,8 @@ const styles = StyleSheet.create({
         width: '100%',
       },
       icons: {
-        marginHorizontal: 20,
-      },
-
+        marginHorizontal:20,
+    },
     trailerContainer: {
       height: 270,
       width: '100%',
@@ -254,7 +224,7 @@ const styles = StyleSheet.create({
       padding: 10,
       borderRadius: 5,
       marginVertical: 5,
-      width: 300,
+      width: 250,
     },
     playText: {
       color: 'black',
