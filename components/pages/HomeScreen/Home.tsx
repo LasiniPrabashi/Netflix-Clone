@@ -1,94 +1,86 @@
-import { StyleSheet, Text, View,Image } from 'react-native'
+import { StyleSheet, Text, View,Image,ScrollView} from 'react-native'
 import React from 'react'
 import Header from '@/comman/Header/Header'
 import { Ionicons } from '@expo/vector-icons'
 
 
 
+
 const Home = () => {
 
   return (
-    <View style={styles.container}>
-      <Header/>
-    <Text style={styles.baseText}>Popular on Netflix</Text>
-    <View style={styles.iconsContainer}>
-      <Ionicons name="notifications" size={24} color="white" style={styles.icon} />
-      <Ionicons name="settings" size={24} color="white" style={styles.icon} />
-      <Ionicons name="time" size={24} color="white" style={styles.icon} />
-    </View>
+    // <ScrollView style={styles.pageContainer}
+    // stickyHeaderIndices={[0]}
+    // showsVerticalScrollIndicator={false}>
+  
+     <View  style={styles.pageContainer}>
+      <Header />
     
-    <View style={styles.imageContainer}>
+      <Text style={styles.baseText}>Popular on Netflix</Text>
+
+  <View style={styles.imageContainer}>
       <Image
         style={styles.tinyLogo}
         
-        // source={require('https://m.media-amazon.com/images/I/81U0-cRG34S._AC_SL1500_.jpg')}
+        source={require('../../../assets/svg/stranger.jpg')}
       />
-      <Text style={styles.imageText}>Ed Sheeran, Katy perry{'\n'}Pitbull and more</Text>
+      {/* <Text style={styles.imageText}>Ed Sheeran, Katy perry{'\n'}Pitbull and more</Text> */}
       
     </View>
 
     <View style={styles.imageContainer2}>
       <Image
         style={styles.tinyLogo2}
-        source={require('../../../assets/svg/stranger.jpg')}
+        source={require('../../../assets/svg/Irishaman.png')}
       />
-      <Text style={styles.imageText}>Catch the Letest Playlist{'\n'}made jus for you....</Text>
+      {/* <Text style={styles.imageText}>Catch the Letest Playlist{'\n'}made jus for you....</Text> */}
     </View>
+
     <Text style={styles.baseText2}>Trending now</Text>
 
-    <View style={styles.imageContainer3}>
+<View style={styles.imageContainer3}>
+  <Image
+    style={styles.tinyLogo2}
+    source={require('../../../assets/svg/strager2.jpg')}
+  />
+  {/* <Text style={styles.imageText}>Believe</Text> */}
+  
+</View>
+
+<View style={styles.imageContainer4}>
       <Image
-        style={styles.tinyLogo3}
-        source={require('../../../assets/svg/lastShip.png')}
+        style={styles.tinyLogo2}
+        source={require('../../../assets/svg/got.jpg')}
       />
-      <Text style={styles.imageText}>Believe</Text>
-      
-    </View>
-    <View style={styles.imageContainer4}>
-      <Image
-        style={styles.tinyLogo3}
-        // source={require('../../../assets/images/EdPerfect.jpg')}
-      />
-      <Text style={styles.imageText}>Perfect</Text>
+      {/* <Text style={styles.imageText}>Perfect</Text> */}
       
     </View>
 
-    <View style={styles.imageContainer5}>
-      <Image
-        style={styles.tinyLogo3}
-        // source={require('../../../assets/images/Loveimages.jpg')}
-      />
-      <Text style={styles.imageText}>Love me like u</Text>
-      
-    </View>
-    <Text style={styles.baseText3}>Populor Artist</Text>
+    <Text style={styles.baseText3}>Latin American Movies & Tv</Text>
 
-    <View style={styles.imageContainer6}>
+    {/* <View style={styles.imageContainer7}>
       <Image
-        style={styles.tinyLogo4}
-        // source={require('../../../assets/images/KPimages.png')}
-      />
-    </View>
-    <View style={styles.imageContainer7}>
-      <Image
-        style={styles.tinyLogo4}
-        // source={require('../../../assets/images/ASimages.jpg')}
-      />   
-    </View>
-    <View style={styles.imageContainer8}>
-      <Image
-        style={styles.tinyLogo4}
-        // source={require('../../../assets/images/SGimages.jpg')}
-      />
-      
-    </View>
-    <View style={styles.bottomIcons}>
-      <Ionicons name="home" size={24} color="white" style={styles.icons} />
-      <Ionicons name="search" size={24} color="white" style={styles.icons} />
-      <Ionicons name="library" size={24} color="white" style={styles.icons} />
-      <Ionicons name="musical-notes" size={24} color="white" style={styles.icons} />
-    </View>
-  </View>
+        style={styles.tinyLogo2}
+        source={require('../../../assets/svg/download.jpg')}
+      /> 
+       </View > */}
+
+
+         <View style={styles.bottomIcons}>
+         <Ionicons name="home" size={24} color="gray" style={styles.icons} />
+         <Ionicons name="time" size={24} color="gray" style={styles.icons} />
+          <Ionicons name="search" size={24} color="gray" style={styles.icons} />
+          <Ionicons name="download" size={24} color= 'gray'  style={styles.icons} />
+          </View> 
+
+</View> 
+ 
+
+    
+   
+
+ 
+ 
   )
 }
 
@@ -101,37 +93,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000000',
   },
+  root: {
+    paddingTop: 4,
+    backgroundColor: "#000000",
+  },
+  pageContainer: {
+    flex: 1,
+    backgroundColor: '#000',
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+  },
   baseText: {
     fontWeight: 'bold',
-    color: 'white',
-    fontSize: 25,
+    fontSize: 20,
     position: 'absolute',
-    top: 20,
-    right: 40,
+    top: 80,
+   left:10,
+    color: 'grey',
   },
   baseText2:{
     fontWeight: 'bold',
-    color: 'white',
-    fontSize: 30,
+    fontSize: 20,
     position: 'absolute',
-    top: 320,
-    right: 10,
+    top: 290,
+    left: 15,
+    color: 'grey',
 
   },
   baseText3:{
     fontWeight: 'bold',
-    color: 'white',
-    fontSize: 30,
+    color: 'grey',
+    fontSize: 20,
     position: 'absolute',
-   bottom:180,
-    right: 10,
+   bottom:120,
+   left: 10,
 
   },
   iconsContainer: {
     position: 'absolute',
     flexDirection: 'row',
     alignItems: 'center',
-    top: 24,
+    top: 30,
     right: -150,
   },
   icon: {
@@ -139,9 +141,17 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: 'absolute',
-    top: 80,
-    right: 20,
+    top: 120,
+    left: 10,
     alignItems: 'center', 
+    height: 70,
+     borderTopWidth: 0,
+     elevation: 10,
+    paddingRight: 10,
+    resizeMode: 'cover',
+    borderRadius: 10,
+    backgroundColor: '#000',
+    justifyContent: 'flex-start',
   },
   tinyLogo: {
     width: 160,
@@ -149,9 +159,16 @@ const styles = StyleSheet.create({
   },
   imageContainer2: {
     position: 'absolute',
-    top: 80,
-    left: 20,
+    top: 120,
+    left: 180,
     alignItems: 'center', 
+    backgroundColor: '#000',
+    height: 70,
+    borderTopWidth: 0,
+     elevation: 10,
+    paddingRight: 10,
+    resizeMode: 'cover',
+    borderRadius: 10,
   },
   tinyLogo2: {
     width: 160,
@@ -161,18 +178,30 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     marginTop: 10, 
+  
   },
   imageContainer3:{
     position: 'absolute',
-   bottom:230,
-    right: 70,
+    top: 330,
+    left: 10,
     alignItems: 'center', 
+    backgroundColor: '#000',
+    borderTopWidth: 0,
+     elevation: 10,
+    paddingRight: 10,
+    resizeMode: 'cover',
+    borderRadius: 10,
   },
   imageContainer4:{
     position: 'absolute',
-    bottom:230,
-    left: -46,
-    alignItems: 'center', 
+    bottom:170,
+    left: 180,
+    alignItems: 'center',
+    borderTopWidth: 0,
+     elevation: 10,
+    paddingRight: 10,
+    resizeMode: 'cover',
+    borderRadius: 10, 
   },
   tinyLogo3:{
     width:100,
@@ -215,6 +244,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
+    color: 'grey',
+    backgroundColor: 'rgba(0,0,0,0.8)',
   },
   icons: {
     marginRight: 20,

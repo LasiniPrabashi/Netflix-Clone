@@ -9,7 +9,7 @@ import HomeScreen from '@/app-example/(tabs)';
 import Home from '@/components/pages/HomeScreen/Home';
 import NavigationStrings from '@/constants/NavigationStrings';
 import { Stack } from 'expo-router';
-import TabRoutes from '@/components/navigation/TabRoutes';
+import Details from '@/components/pages/Details/Details';
 
 
 
@@ -19,7 +19,7 @@ const stack = createNativeStackNavigator()
 export default function index() {
   return (
     <NavigationContainer independent={true}>
-    <stack.Navigator initialRouteName="Main-Page">
+    <stack.Navigator initialRouteName="Details">
       <stack.Screen name='Loding-page' component={LodingPage}   options={{
             headerShown: false,
           }}/>
@@ -30,6 +30,9 @@ export default function index() {
             headerShown: false,
       }}/>
       <stack.Screen name='Home' component={Home} options={{
+            headerShown: false,
+      }}/>
+     <stack.Screen name='Details' component={Details} options={{
             headerShown: false,
       }}/>
      
