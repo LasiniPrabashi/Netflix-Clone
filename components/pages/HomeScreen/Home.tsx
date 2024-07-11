@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View,Image,ScrollView} from 'react-native'
+import { StyleSheet, Text, View,Image,ScrollView,FlatList} from 'react-native'
 import React from 'react'
 import Header from '@/comman/Header/Header'
 import { Ionicons } from '@expo/vector-icons'
+
 
 
 
@@ -15,57 +16,58 @@ const Home = () => {
   
      <View  style={styles.pageContainer}>
       <Header />
-    
-      <Text style={styles.baseText}>Popular on Netflix</Text>
 
-  <View style={styles.imageContainer}>
-      <Image
-        style={styles.tinyLogo}
-        
-        source={require('../../../assets/svg/stranger.jpg')}
-      />
-      {/* <Text style={styles.imageText}>Ed Sheeran, Katy perry{'\n'}Pitbull and more</Text> */}
+ 
+     
+ <Text style={styles.baseText}>Popular on Netflix</Text>
+
+<View style={styles.imageContainer}>
+    <Image
+      style={styles.tinyLogo}
       
-    </View>
+      source={require('../../../assets/svg/stranger.jpg')}
+    />
+    {/* <Text style={styles.imageText}>Ed Sheeran, Katy perry{'\n'}Pitbull and more</Text> */}
+    
+  </View>
 
-    <View style={styles.imageContainer2}>
-      <Image
-        style={styles.tinyLogo2}
-        source={require('../../../assets/svg/Irishaman.png')}
-      />
-      {/* <Text style={styles.imageText}>Catch the Letest Playlist{'\n'}made jus for you....</Text> */}
-    </View>
+  <View style={styles.imageContainer2}>
+    <Image
+      style={styles.tinyLogo2}
+      source={require('../../../assets/svg/Irishaman.png')}
+    />
+    {/* <Text style={styles.imageText}>Catch the Letest Playlist{'\n'}made jus for you....</Text> */}
+  </View>
 
-    <Text style={styles.baseText2}>Trending now</Text>
+  <Text style={styles.baseText2}>Trending now</Text>
 
 <View style={styles.imageContainer3}>
-  <Image
-    style={styles.tinyLogo2}
-    source={require('../../../assets/svg/strager2.jpg')}
-  />
-  {/* <Text style={styles.imageText}>Believe</Text> */}
-  
+<Image
+  style={styles.tinyLogo2}
+  source={require('../../../assets/svg/strager2.jpg')}
+/>
+{/* <Text style={styles.imageText}>Believe</Text> */}
+
 </View>
 
 <View style={styles.imageContainer4}>
-      <Image
-        style={styles.tinyLogo2}
-        source={require('../../../assets/svg/got.jpg')}
-      />
-      {/* <Text style={styles.imageText}>Perfect</Text> */}
-      
-    </View>
+    <Image
+      style={styles.tinyLogo2}
+      source={require('../../../assets/svg/got.jpg')}
+    />
+    {/* <Text style={styles.imageText}>Perfect</Text> */}
+    
+  </View>
 
-    <Text style={styles.baseText3}>Latin American Movies & Tv</Text>
+  <Text style={styles.baseText3}>Latin American Movies & Tv</Text>
 
-    {/* <View style={styles.imageContainer7}>
-      <Image
-        style={styles.tinyLogo2}
-        source={require('../../../assets/svg/download.jpg')}
-      /> 
-       </View > */}
-
-
+  {/* <View style={styles.imageContainer7}>
+    <Image
+      style={styles.tinyLogo2}
+      source={require('../../../assets/svg/download.jpg')}
+    /> 
+     </View > */}
+  
          <View style={styles.bottomIcons}>
          <Ionicons name="home" size={24} color="gray" style={styles.icons} />
          <Ionicons name="time" size={24} color="gray" style={styles.icons} />
@@ -102,6 +104,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     paddingVertical: 15,
     paddingHorizontal: 10,
+  },
+  scrollView: {
+    marginTop: 10,
   },
   baseText: {
     fontWeight: 'bold',
