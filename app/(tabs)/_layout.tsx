@@ -2,6 +2,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Tabs } from "expo-router";
+import Home from "./Home";
+import SearchPage from "./SearchPage";
+import Details from "./Details";
 
 
 const Tab = createBottomTabNavigator();
