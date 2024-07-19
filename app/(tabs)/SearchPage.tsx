@@ -1,89 +1,79 @@
-import { StyleSheet, Text, View,ScrollView,TouchableOpacity,Image,Pressable } from 'react-native'
+import { StyleSheet, Text, View,ScrollView,TextInput,Image,Pressable } from 'react-native'
 import React, { useState } from 'react'
-import { Ionicons, MaterialIcons, Octicons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
+import Search from '@/comman/Header/Search';
+
 
 const songs = [
     {
       id: 1,
       title: 'stranger Things 1 & 2',
       artist: 'tv shows',
-      image: require('../../../assets/svg/stranger.jpg')
+      image: require('../../assets/svg/stranger.jpg')
     },
     {
       id: 2,
       title: '13 RESASONS WHY',
       artist: 'tv shows',
-      image: require('../../../assets/svg/13R.jpg')
+      image: require('../../assets/svg/13R.jpg')
     },
     {
       id: 3,
       title: 'Money Heist',
       artist: 'tv shows',
-      image: require('../../../assets/svg/moneyHeist.jpg')
+      image: require('../../assets/svg/moneyHeist.jpg')
     },
     {
       id: 4,
       title: 'DARK',
       artist: 'tv shows',
-      image: require('../../../assets/svg/dark.png')
+      image: require('../../assets/svg/dark.png')
     },
     {
       id: 5,
       title: 'Peaky Blinder',
       artist: 'tv shows',
-      image: require('../../../assets/svg/peakyBlinder.jpg')
+      image: require('../../assets/svg/peakyBlinder.jpg')
+    },
+    {
+      id: 6,
+      title: 'Peaky Blinder',
+      artist: 'tv shows',
+      image: require('../../assets/svg/peakyBlinder.jpg')
+    },{
+      id: 7,
+      title: 'Peaky Blinder',
+      artist: 'tv shows',
+      image: require('../../assets/svg/peakyBlinder.jpg')
+    },{
+      id: 8,
+      title: 'Peaky Blinder',
+      artist: 'tv shows',
+      image: require('../../assets/svg/peakyBlinder.jpg')
+    },{
+      id: 9,
+      title: 'Peaky Blinder',
+      artist: 'tv shows',
+      image: require('../../assets/svg/peakyBlinder.jpg')
     }
     
   ]
 
 export default function Details() {
-  const [isMute, setIsMute] = useState(false);
-
+  const [searchText, setSearchText] = useState('');
   return (
-    <View style={styles.container}>
+    
+    <View style={styles.pageContainer}>
+      
+    <Search/>
+
+ 
+  <View style={styles.container}>
+
       <ScrollView style={styles.scrollView}>
-      <View style={styles.trailerContainer}>
-        {/* <Image
-          source={{uri: data.seasons.items[0].episodes.items[1].poster}}
-          style={styles.trailer}
-        /> */}
-        <Pressable style={styles.playBtn}>
-          <Ionicons name="play-sharp" size={30} color="white" />
-        </Pressable>
-        <Pressable
-          style={styles.audioBtn}
-          onPress={() => {
-            setIsMute(!isMute);
-          }}>
-          {isMute ? (
-            <Octicons name="mute" size={20} color="white" />
-          ) : (
-            <Octicons name="unmute" size={20} color="white" />
-          )}
-        </Pressable>
-      </View>
-    <View style={styles.imageContainer}>
-      <View style={styles.detailsContainer}>
-        <View style={styles.stats}>
-          <Text style={styles.match}>98% Match</Text>
-          {/* <Text style={styles.year}>{data.year}</Text> */}
-          <Text style={styles.age}>12+</Text>
-          {/* <Text style={styles.seasons}>{data.numberOfSeasons} Seasons</Text> */}
-          <MaterialIcons name="hd" size={25} color="white" />
-        </View>
-         <Pressable style={styles.playButton}>
-          <Ionicons name="play-sharp" size={25} color="black" />
-          <Text style={styles.playText}>Play</Text>
-        </Pressable>
-        <Pressable style={styles.downloadBtn}>
-          <Octicons name="download" size={25} color="white" />
-          <Text style={styles.downloadText}>Download</Text>
-        </Pressable>
-    
-      </View>
-    </View>
-    <Text style={styles.baseText}>Episodes</Text>
-    
+
+       
+     
       {songs.map((song, index) => (
         <View key={song.id} style={styles.popularContainer}>
           <Text style={styles.rankText}>{index + 1}</Text>
@@ -95,21 +85,29 @@ export default function Details() {
             <Text style={styles.songTitle}>{song.title}</Text>
             <Text style={styles.songArtist}>{song.artist}</Text>
           </View>
-          <Ionicons name="download" size={24} color="grey" style={styles.popularMoreIcon} />
+          <Ionicons name="play" size={24} color="grey" style={styles.popularMoreIcon} />
         </View>
       ))}
     </ScrollView>
-    <View style={styles.bottomIcons}>
+    </View>
+   
+    {/* <View style={styles.bottomIcons}>
       <Ionicons name="home" size={24} color="grey" style={styles.icons} />
       <Ionicons name="time" size={24} color="grey" style={styles.icons} />
       <Ionicons name="search" size={24} color="grey" style={styles.icons} />
       <Ionicons name="download" size={24} color="grey" style={styles.icons} />
-    </View>
+    </View> */}
   </View>
   )
 }
 
 const styles = StyleSheet.create({
+  pageContainer: {
+    flex: 1,
+    backgroundColor: '#000',
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+  },
     container: {
         flex: 1,
         backgroundColor: '#000000',
@@ -280,5 +278,25 @@ const styles = StyleSheet.create({
       color: 'grey',
       fontSize: 16,
       marginRight: 10,
+    },
+    searchContainer: {
+      position: 'absolute',
+      top: 70,
+      width: '96%',
+      height: 50,
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: 'white',
+      borderColor: 'white',
+      borderWidth: 1,
+      borderRadius: 5,
+      paddingHorizontal: 10,
+    },
+    searchIcon: {
+      marginRight: 10,
+    },
+    input: {
+      flex: 1,
+      color: 'black',
     },
 })

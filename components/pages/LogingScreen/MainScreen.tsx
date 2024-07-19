@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View,Image,TextInput,Pressable } from 'react-native'
+import { StyleSheet, Text, View,Image,TextInput,Pressable,TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather';
 import React from 'react'
+import { router } from 'expo-router';
 
 const MainScreen = ({ navigation }: { navigation: any }) => {
 
@@ -36,14 +37,10 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
             }}
           />
         </View>
-        <Pressable style={styles.formButton} 
-        onPress={() => {
-            navigation.navigate("Home");
-          }}
-          >
-    
-          <Text style={styles.formButtonText}>SIGN IN</Text>
-        </Pressable>
+        <TouchableOpacity style={styles.formButton} onPress={()=>router.push('/Home')}>
+        <Text style={styles.formButtonText}>SIGN IN</Text>
+      </TouchableOpacity>
+      
         <Pressable style={styles.recoverBtn}>
           <Text style={styles.headerText}>Recover Password</Text>
         </Pressable>
