@@ -1,14 +1,22 @@
 
-
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView,FlatList } from 'react-native';
 import React from 'react';
 import Header from '@/comman/Header/Header';
+import CategorySlider from '@/components/pages/CategorySlider';
+import categories from '@/data/categories';
+
 
 const Home = () => {
   return (
     <View style={styles.pageContainer}>
       <Header />
-      <View style={styles.container}>
+      <FlatList
+        data={categories.items}
+        renderItem={({item}) => <CategorySlider category={item} />}
+        keyExtractor={item => item.id}
+        showsVerticalScrollIndicator={false}
+      />
+      {/* <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Text style={styles.baseText}>Popular on Netflix</Text>
         <View style={styles.imageContainer}>
@@ -38,8 +46,8 @@ const Home = () => {
         </View>
         <Text style={styles.baseText3}>Latin American Movies & TV</Text>
         {/* Add more content here as needed */}
-      </ScrollView>
-      </View>
+      {/* </ScrollView>
+      </View> */} 
     </View>
   );
 };

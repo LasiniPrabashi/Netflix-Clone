@@ -36,7 +36,7 @@ const songs = [
     
   ]
 
-export default function Details() {
+export default function download() {
   const [isMute, setIsMute] = useState(false);
 
   return (
