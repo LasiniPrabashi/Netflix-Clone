@@ -66,8 +66,6 @@ export default function Details() {
     <View style={styles.pageContainer}>
       
     <Search/>
-
- 
   <View style={styles.container}>
 
       <ScrollView style={styles.scrollView}>
@@ -91,12 +89,6 @@ export default function Details() {
     </ScrollView>
     </View>
    
-    {/* <View style={styles.bottomIcons}>
-      <Ionicons name="home" size={24} color="grey" style={styles.icons} />
-      <Ionicons name="time" size={24} color="grey" style={styles.icons} />
-      <Ionicons name="search" size={24} color="grey" style={styles.icons} />
-      <Ionicons name="download" size={24} color="grey" style={styles.icons} />
-    </View> */}
   </View>
   )
 }

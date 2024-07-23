@@ -95,7 +95,8 @@ export default function download() {
             <Text style={styles.songTitle}>{song.title}</Text>
             <Text style={styles.songArtist}>{song.artist}</Text>
           </View>
-          <Ionicons name="download" size={24} color="grey" style={styles.popularMoreIcon} />
+          
+          <Octicons name="download" size={25} color="white" /> 
         </View>
       ))}
     </ScrollView>
