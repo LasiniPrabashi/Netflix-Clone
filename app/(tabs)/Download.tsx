@@ -99,12 +99,12 @@ export default function download() {
         </View>
       ))}
     </ScrollView>
-    <View style={styles.bottomIcons}>
+    {/* <View style={styles.bottomIcons}>
       <Ionicons name="home" size={24} color="grey" style={styles.icons} />
       <Ionicons name="time" size={24} color="grey" style={styles.icons} />
       <Ionicons name="search" size={24} color="grey" style={styles.icons} />
       <Ionicons name="download" size={24} color="grey" style={styles.icons} />
-    </View>
+    </View> */}
   </View>
   )
 }

@@ -11,56 +11,42 @@ const Tab = createBottomTabNavigator();
 
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs screenOptions={{
+      headerShown: false,
+      tabBarLabelStyle: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: 'grey',
+      },
+      tabBarStyle: {
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        position: 'absolute',
+        height: 70,
+        borderTopWidth: 0,
+        elevation: 10,
+        paddingRight: 10,
+      },
+    }}>
+        
       <Tabs.Screen name="Home"  
            options={{
-             tabBarIcon: ({ color, size }) => (
-               <Ionicons name="home-outline" color={color} size={size} />
+             tabBarIcon: ({focused}) => (
+               <Ionicons name="home-outline" size={25} color={focused ? 'red' : 'grey'}  />
              ),
           }}/>
 
           <Tabs.Screen name="Search" options={{
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="search" color={color} size={size} />
+            tabBarIcon: ({focused }) => (
+              <Ionicons name="search"  size={25} color={focused ? 'red' : 'grey'} />
             ),
           }} />
 
       <Tabs.Screen name="Download" options={{
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="download" color={color} size={size} />
+            tabBarIcon: ({ focused }) => (
+              <Ionicons name="download" size={25} color={focused ? 'red' : 'grey'} />
             ),
           }} />
     </Tabs>
-    // <NavigationContainer>
-    //   <Tab.Navigator>
-    //     <Tab.Screen
-    //       name="Home"
-    //       component={Home}
-    //       options={{
-    //         tabBarIcon: ({ color, size }) => (
-    //           <Ionicons name="home-outline" color={color} size={size} />
-    //         ),
-    //       }}
-    //     />
-    //     <Tab.Screen
-    //       name="Details"
-    //       component={Details}
-    //       options={{
-    //         tabBarIcon: ({ color, size }) => (
-    //           <Ionicons name="download" color={color} size={size} />
-    //         ),
-    //       }}
-    //     />
-    //     <Tab.Screen
-    //       name="SearchPage"
-    //       component={SearchPage}
-    //       options={{
-    //         tabBarIcon: ({ color, size }) => (
-    //           <Ionicons name="search" color={color} size={size} />
-    //         ),
-    //       }}
-    //     />
-    //   </Tab.Navigator>
-    // </NavigationContainer>
+
   );
 }

@@ -7,6 +7,7 @@ import LogingScreen from '@/components/pages/LogingScreen/LogingScreen';
 import MainScreen from '@/components/pages/LogingScreen/MainScreen';
 import HomeScreen from '@/app-example/(tabs)';
 import { Stack } from 'expo-router';
+import Home from './(tabs)/Home';
 
 
 
@@ -17,7 +18,7 @@ const stack = createNativeStackNavigator()
 export default function index() {
   return (
     <NavigationContainer independent={true}>
-    <stack.Navigator initialRouteName="Main-Page">
+    <stack.Navigator initialRouteName="Loding-Page">
       <stack.Screen name='Loding-page' component={LodingPage}   options={{
             headerShown: false,
           }}/>

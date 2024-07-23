@@ -1,7 +1,16 @@
 import { StyleSheet, Text, View,Image } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const LodingPage = () => {
+const LodingPage = ({ navigation }: { navigation: any }) => {
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace('Loging-Page');
+    }, 7000); // Change the delay as needed (3000ms = 3s)
+
+    return () => clearTimeout(timer);
+  }, [navigation]);
+
   return (
     <View
     style={{

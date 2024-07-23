@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image } from 'react-native'
+import { StyleSheet, Text, View,Image,Pressable } from 'react-native'
 import React from 'react'
 
 const LogingScreen = ({ navigation }: { navigation: any }) => {
@@ -25,6 +25,13 @@ const LogingScreen = ({ navigation }: { navigation: any }) => {
           Stream on your phone, tablet, laptop, and TV without paying more.
         </Text>
       </View>
+      <Pressable
+        style={styles.loginButton}
+        onPress={() => {
+          navigation.navigate('Main-Page');
+        }}>
+        <Text style={styles.loginButtonText}>Login</Text>
+      </Pressable>
     </View>
   )
 }
@@ -80,5 +87,16 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginVertical: 20,
         width: 300,
+      },
+      loginButton: {
+        backgroundColor: '#D23027',
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      loginButtonText: {
+        color: 'white',
+        fontSize: 20,
+        fontWeight: 'bold',
       },
 })

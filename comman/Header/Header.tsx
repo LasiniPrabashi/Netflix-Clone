@@ -1,9 +1,11 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
+import Icon from 'react-native-vector-icons/Feather';
 
 const Header = () => {
   return (
     <View style={styles.navbarContainer}>
+       {/* <Icon name="chevron-left" size={30} color="white" /> */}
       <Image style={styles.logo} source={require('../../assets/svg/Logo.png')} />
       <View style={styles.navLinks}>
         <Text style={styles.link}>TV Shows</Text>
