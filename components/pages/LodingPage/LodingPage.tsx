@@ -6,7 +6,7 @@ const LodingPage = ({ navigation }: { navigation: any }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.replace('Loging-Page');
-    }, 7000); // Change the delay as needed (3000ms = 3s)
+    }, 2000); // Change the delay as needed (3000ms = 3s)
 
     return () => clearTimeout(timer);
   }, [navigation]);

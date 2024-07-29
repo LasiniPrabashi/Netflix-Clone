@@ -10,11 +10,6 @@ export default function Search() {
       <View style={styles.navbarContainer}>
        {/* <Icon name="chevron-left" size={30} color="white" /> */}
       <Image style={styles.logo} source={require('../../assets/svg/Logo.png')} />
-      {/* <View style={styles.navLinks}>
-        <Text style={styles.link}>TV Shows</Text>
-        <Text style={styles.link}>Movies</Text>
-        <Text style={styles.link}>My List</Text>
-      </View> */}
       <View style={styles.searchContainer}>
         <Ionicons name="search" size={20} color="#888" style={styles.searchIcon} />
         <TextInput
@@ -45,7 +40,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         paddingHorizontal: 10,
-        left: 50,
+        left: 45,
       },
       searchIcon: {
         marginRight: 10,

@@ -16,38 +16,7 @@ const Home = () => {
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
       />
-      {/* <View style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        <Text style={styles.baseText}>Popular on Netflix</Text>
-        <View style={styles.imageContainer}>
-          <Image
-            style={styles.tinyLogo}
-            source={require('../../assets/svg/stranger.jpg')}
-          />
-        </View>
-        <View style={styles.imageContainer2}>
-          <Image
-            style={styles.tinyLogo2}
-            source={require('../../assets/svg/Irishaman.png')}
-          />
-        </View>
-        <Text style={styles.baseText2}>Trending now</Text>
-        <View style={styles.imageContainer3}>
-          <Image
-            style={styles.tinyLogo3}
-            source={require('../../assets/svg/strager2.jpg')}
-          />
-        </View>
-        <View style={styles.imageContainer4}>
-          <Image
-            style={styles.tinyLogo4}
-            source={require('../../assets/svg/got.jpg')}
-          />
-        </View>
-        <Text style={styles.baseText3}>Latin American Movies & TV</Text>
-        {/* Add more content here as needed */}
-      {/* </ScrollView>
-      </View> */} 
+     
     </View>
   );
 };

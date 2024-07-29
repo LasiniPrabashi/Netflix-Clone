@@ -1,10 +1,7 @@
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Octicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Tabs } from "expo-router";
-import Home from "./Home";
-import SearchPage from "./Search";
-import Details from "./Download";
 
 
 const Tab = createBottomTabNavigator();
@@ -43,9 +40,10 @@ export default function TabLayout() {
 
       <Tabs.Screen name="Download" options={{
             tabBarIcon: ({ focused }) => (
-              <Ionicons name="download" size={25} color={focused ? 'red' : 'grey'} />
+              <Octicons name="download"   size={25} color={focused ? 'red' : 'grey'} />
             ),
           }} />
+         
     </Tabs>
 
   );
