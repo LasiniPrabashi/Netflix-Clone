@@ -1,9 +1,10 @@
 
-import { StyleSheet, Text, View, ScrollView, FlatList, Image, Pressable } from 'react-native';
+import { StyleSheet, Text, View,  FlatList, Image, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { Ionicons, MaterialIcons, Octicons } from '@expo/vector-icons';
 import data from '../../data/movie';
 import EpisodeCard from '@/components/pages/EpisodeCard';
+import { ScrollView } from 'react-native-virtualized-view'
 
 interface Movie {
   id: string;
@@ -33,8 +34,11 @@ interface Movie {
 
 export default function Download() {
   const [isMute, setIsMute] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
   const [season, setSeason] = useState('Season 1');
   return (
+   
     <View style={styles.container}>
       <View style={styles.trailerContainer}>
         <Image
@@ -59,13 +63,14 @@ export default function Download() {
       </View>
       <ScrollView
         style={styles.pageContainer}
+        contentContainerStyle={styles}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.detailsContainer}>
           <View style={styles.stats}>
             <Text style={styles.match}>98% Match</Text>
             <Text style={styles.year}>{data.year}</Text>
-            <Text style={styles.age}>12+</Text>
+            {/* <Text style={styles.age}>12+</Text> */}
             <Text style={styles.seasons}>{data.numberOfSeasons} Seasons</Text>
             <MaterialIcons name="hd" size={30} color="white" />
           </View>
@@ -83,6 +88,37 @@ export default function Download() {
           </Text>
           <Text style={styles.creator}>Creator: {data.creator}</Text>
         </View>
+
+        <View style={styles.buttonGroup}>
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            setIsAdded(!isAdded);
+          }}>
+          {isAdded ? (
+            <Octicons name="checklist" size={30} color="red" />
+          ) : (
+            <Octicons name="plus" size={30} color="white" />
+          )}
+          <Text style={styles.buttonText}>My List</Text>
+        </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            setIsLiked(!isLiked);
+          }}>
+          {isLiked ? (
+            <Ionicons name="thumbs-up" size={30} color="red" />
+          ) : (
+            <Ionicons name="thumbs-up" size={30} color="white" />
+          )}
+          <Text style={styles.buttonText}>Rate</Text>
+        </Pressable>
+        <Pressable style={styles.button}>
+          <Ionicons name="share" size={30} color="white" />
+          <Text style={styles.buttonText}>Share</Text>
+        </Pressable>
+      </View>
         <View style={styles.episodeOptions}>
           <Pressable style={styles.episodeBtn}>
             <Text style={styles.episodeText}>Episodes</Text>
@@ -91,7 +127,9 @@ export default function Download() {
             <Text style={styles.moreText}>More Like This</Text>
           </Pressable>
         </View>
+
         <View style={styles.episodeContainer}>
+       
           <FlatList
             data={
               season === 'Season 1'
@@ -103,16 +141,24 @@ export default function Download() {
                 title={item.title}
                 poster={item.poster}
                 duration={item.duration}
-                // plot={item.plot}
+                plot={item.plot}
               />
             )}
             keyExtractor={(item) => item.id}
           />
+        
+      
         </View>
       </ScrollView>
+      
     </View>
   );
+
+  
+
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -308,3 +354,4 @@ const styles = StyleSheet.create({
    
   }
 })
+

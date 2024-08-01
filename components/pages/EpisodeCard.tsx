@@ -2,7 +2,7 @@ import { StyleSheet, Text, View,Image,Pressable } from 'react-native'
 import React from 'react'
 import { Ionicons, Octicons } from '@expo/vector-icons'
 
-const EpisodeCard = ({title,duration,poster}) => {
+const EpisodeCard = ({title,duration,poster,plot}) => {
   return (
     <View style={styles.episodeContiner}>
     <View style={styles.EpisodeDetails}>
@@ -25,7 +25,7 @@ const EpisodeCard = ({title,duration,poster}) => {
         style={styles.desciptionText}
         ellipsizeMode="tail"
         numberOfLines={3}>
-      
+        {plot}
       </Text>
     </View>
   </View>

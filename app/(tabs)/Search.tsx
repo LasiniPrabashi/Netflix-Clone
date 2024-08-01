@@ -1,66 +1,15 @@
-import { StyleSheet, Text, View,ScrollView,TextInput,Image,Pressable } from 'react-native'
+import { StyleSheet, Text, View,TextInput,Image,Pressable, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import Search from '@/comman/Header/Search';
+import EpisodeCard from '@/components/pages/EpisodeCard';
+import { ScrollView } from 'react-native-virtualized-view'
+import search from '@/data/Search';
 
-
-const songs = [
-    {
-      id: 1,
-      title: 'stranger Things 1 & 2',
-      artist: 'tv shows',
-      image: require('../../assets/svg/stranger.jpg')
-    },
-    {
-      id: 2,
-      title: '13 RESASONS WHY',
-      artist: 'tv shows',
-      image: require('../../assets/svg/13R.jpg')
-    },
-    {
-      id: 3,
-      title: 'Money Heist',
-      artist: 'tv shows',
-      image: require('../../assets/svg/moneyHeist.jpg')
-    },
-    {
-      id: 4,
-      title: 'DARK',
-      artist: 'tv shows',
-      image: require('../../assets/svg/dark.png')
-    },
-    {
-      id: 5,
-      title: 'Peaky Blinder',
-      artist: 'tv shows',
-      image: require('../../assets/svg/peakyBlinder.jpg')
-    },
-    {
-      id: 6,
-      title: 'Peaky Blinder',
-      artist: 'tv shows',
-      image: require('../../assets/svg/peakyBlinder.jpg')
-    },{
-      id: 7,
-      title: 'Peaky Blinder',
-      artist: 'tv shows',
-      image: require('../../assets/svg/peakyBlinder.jpg')
-    },{
-      id: 8,
-      title: 'Peaky Blinder',
-      artist: 'tv shows',
-      image: require('../../assets/svg/peakyBlinder.jpg')
-    },{
-      id: 9,
-      title: 'Peaky Blinder',
-      artist: 'tv shows',
-      image: require('../../assets/svg/peakyBlinder.jpg')
-    }
-    
-  ]
 
 export default function Details() {
   const [searchText, setSearchText] = useState('');
+  const [season, setSeason] = useState('Season 1');
   return (
     
     <View style={styles.pageContainer}>
@@ -68,24 +17,30 @@ export default function Details() {
     <Search/>
   <View style={styles.container}>
 
-      <ScrollView style={styles.scrollView}>
-
-       
-     
-      {songs.map((song, index) => (
-        <View key={song.id} style={styles.popularContainer}>
-          <Text style={styles.rankText}>{index + 1}</Text>
-          <Image
-            style={styles.popularImage}
-            source={song.image}
-          />
-          <View style={styles.textContainer}>
-            <Text style={styles.songTitle}>{song.title}</Text>
-            <Text style={styles.songArtist}>{song.artist}</Text>
-          </View>
-          <Ionicons name="play" size={24} color="grey" style={styles.popularMoreIcon} />
-        </View>
-      ))}
+      <ScrollView style={styles.scrollView}
+          contentContainerStyle={styles}
+        // stickyHeaderIndices={[0]}
+      showsVerticalScrollIndicator={false}
+      >
+     <View style={styles.episodeContainer}>
+        <FlatList
+          data={
+            season === 'Season 1'
+              ? search.seasons.items[0].episodes.items
+              : search.seasons.items[1].episodes.items
+          }
+          renderItem={({item}) => (
+            <EpisodeCard
+              title={item.title}
+              poster={item.poster}
+              duration={item.duration}
+              plot={item.plot}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+            
     </ScrollView>
     </View>
    
@@ -105,123 +60,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
       },
       scrollView: {
-        marginTop: 10,
+        flex: 2,
+        backgroundColor: 'black',
       },
-      imageContainer: {
-        alignItems: 'center',
-        marginTop: 0,
-      },
-      tinyLogo: {
-        width: 360,
-        height: 300,
-      },
-      imageText: {
-        color: 'darkgray',
-        fontSize: 16,
-        marginTop: 20,
-        marginRight: 180,
-      },
-      baseText: {
-        fontWeight: 'bold',
-        color: 'white',
-        fontSize: 22,
-        marginTop: 20,
-        marginLeft: 20,
-      },
-      popularContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 10,
-        marginLeft: 20,
-        marginRight: 20,
-      },
-      rankText: {
-        color: 'white',
-        fontSize: 20,
-        marginRight: 10,
-      },
-      popularImage: {
-        width: 60,
-        height: 60,
-      },
-      textContainer: {
-        marginLeft: 10,
-        flex: 1,
-      },
-      songTitle: {
-        fontSize: 15,
-        fontWeight: 'bold',
-        color: 'white',
-      },
-      songArtist: {
-        color: 'gray',
-        fontSize: 16,
-      },
-      popularMoreIcon: {
-        marginLeft: 10,
-      },
-      bottomIcons: {
-        position: 'absolute',
-        bottom: 20,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        width: '100%',
-      },
-      icons: {
-        marginHorizontal:20,
-    },
-    trailerContainer: {
-      height: 270,
-      width: '100%',
-      justifyContent: 'center',
-      alignItems: 'center',
-      position: 'relative',
-    },
-    trailer: {
-      height: '100%',
-      width: '100%',
-      resizeMode: 'cover',
-    },
-    playBtn: {
-      position: 'absolute',
-      borderColor: 'red',
-      height: 60,
-      width: 60,
-      padding: 8,
-      borderWidth: 2,
-      backgroundColor: 'rgba(0,0,0,0.8)',
-      borderRadius: 60,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    audioBtn: {
-      position: 'absolute',
-      height: 40,
-      width: 40,
-      padding: 8,
-      backgroundColor: 'rgba(0,0,0,0.8)',
-      borderRadius: 60,
-      justifyContent: 'center',
-      alignItems: 'center',
-      right: 20,
-      bottom: 20,
-    },
-    playButton: {
-      backgroundColor: 'white',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: 10,
-      borderRadius: 5,
-      marginVertical: 5,
-      width: 250,
-    },
-    playText: {
-      color: 'black',
-      fontSize: 16,
-      fontWeight: 'bold',
-      marginLeft: 5,
-    },
+     
     downloadBtn: {
       backgroundColor: 'grey',
       flexDirection: 'row',
@@ -291,4 +133,9 @@ const styles = StyleSheet.create({
       flex: 1,
       color: 'black',
     },
+
+    episodeContainer: {
+      flex: 1,
+     
+    }
 })
